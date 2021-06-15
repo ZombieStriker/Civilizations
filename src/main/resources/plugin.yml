@@ -1,0 +1,6 @@
+name: Civilizations
+version: @version@
+main: tau.network.civilizations.Civilizations
+api-version: 1.17
+authors: [ Zombie_Striker ]
+load: STARTUP
