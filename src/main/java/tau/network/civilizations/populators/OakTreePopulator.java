@@ -28,6 +28,5 @@ public class OakTreePopulator extends CivPopulator{
         CivPopulatorManager.setHoldoverBlock(world,x,maxheight+5,z-1,chunkx,chunkz,Material.OAK_LEAVES);
         CivPopulatorManager.setHoldoverBlock(world,x,maxheight+5,z+1,chunkx,chunkz,Material.OAK_LEAVES);
         CivPopulatorManager.setHoldoverBlock(world,x,maxheight+6,z,chunkx,chunkz,Material.OAK_LEAVES);
-        //chunk.setBlock(x,maxheight+1,z,Material.DEAD_BUSH);
     }
 }

@@ -1,13 +1,16 @@
 package tau.network.civilizations;
 
+import org.bukkit.Bukkit;
 import org.bukkit.generator.ChunkGenerator;
 import org.bukkit.plugin.java.JavaPlugin;
+import tau.network.civilizations.oregen.OreGenerator;
 import tau.network.civilizations.populators.CivPopulatorManager;
 
 public final class Civilizations extends JavaPlugin {
 
 
     private static Civilizations instance;
+
     public static Civilizations getInstance() {
         return instance;
     }
@@ -16,7 +19,7 @@ public final class Civilizations extends JavaPlugin {
     public void onEnable() {
         instance = this;
         CivPopulatorManager.init();
-
+        Bukkit.getPluginManager().registerEvents(new OreGenerator(), this);
     }
 
     @Override

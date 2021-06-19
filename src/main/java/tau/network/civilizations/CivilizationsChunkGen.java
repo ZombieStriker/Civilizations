@@ -4,7 +4,6 @@ import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.generator.BlockPopulator;
 import org.bukkit.generator.ChunkGenerator;
-import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.noise.SimplexNoiseGenerator;
 import tau.network.civilizations.chunk.BlockDataHolder;
 import tau.network.civilizations.chunk.ChunkPosition;
@@ -16,19 +15,18 @@ import java.util.Random;
 
 public class CivilizationsChunkGen extends ChunkGenerator {
 
-    private SimplexNoiseGenerator noise1 = new SimplexNoiseGenerator(1111111111);
-    private SimplexNoiseGenerator noise2 = new SimplexNoiseGenerator(222222222);
-    private SimplexNoiseGenerator noise3 = new SimplexNoiseGenerator(3333333);
-    private SimplexNoiseGenerator noise4 = new SimplexNoiseGenerator(44444444);
-    private SimplexNoiseGenerator noise5 = new SimplexNoiseGenerator(55555555);
-    private SimplexNoiseGenerator noiseA1 = new SimplexNoiseGenerator(43625454);
-    private SimplexNoiseGenerator noiseA2 = new SimplexNoiseGenerator(26435675);
+    private final SimplexNoiseGenerator noise1 = new SimplexNoiseGenerator(1111111111);
+    private final SimplexNoiseGenerator noise2 = new SimplexNoiseGenerator(222222222);
+    private final SimplexNoiseGenerator noise3 = new SimplexNoiseGenerator(3333333);
+    private final SimplexNoiseGenerator noise4 = new SimplexNoiseGenerator(44444444);
+    private final SimplexNoiseGenerator noise5 = new SimplexNoiseGenerator(55555555);
+    private final SimplexNoiseGenerator noiseA1 = new SimplexNoiseGenerator(43625454);
+    private final SimplexNoiseGenerator noiseA2 = new SimplexNoiseGenerator(26435675);
 
-    private SimplexNoiseGenerator noiseTemperature = new SimplexNoiseGenerator(2133321);
-    private SimplexNoiseGenerator noiseTemperatureA1 = new SimplexNoiseGenerator(3421465);
-    private SimplexNoiseGenerator noiseTemperatureA2 = new SimplexNoiseGenerator(2354324);
+    private final SimplexNoiseGenerator noiseTemperature = new SimplexNoiseGenerator(2133321);
+    private final SimplexNoiseGenerator noiseTemperatureA1 = new SimplexNoiseGenerator(3421465);
+    private final SimplexNoiseGenerator noiseTemperatureA2 = new SimplexNoiseGenerator(2354324);
 
-    @Override
     public ChunkData generateChunkData(World world, Random random, int cx, int cz, BiomeGrid biome) {
         ChunkData chunkData = createChunkData(world);
         for (int x1 = 0; x1 < 16; x1++) {
@@ -92,8 +90,8 @@ public class CivilizationsChunkGen extends ChunkGenerator {
                         chunkData.setBlock(x1, y, z1, Material.WATER);
                     }
                 } else {
-                    CivPopulatorManager.populate(world, civbiome, chunkData, x1, z1, terrainHeight,cx,cz);
-                    if(CivPopulatorManager.getHoldoverBlocks(ChunkPosition.at(x1,z1))!=null) {
+                    CivPopulatorManager.populate(world, civbiome, chunkData, x1, z1, terrainHeight, cx, cz);
+                    if (CivPopulatorManager.getHoldoverBlocks(ChunkPosition.at(x1, z1)) != null) {
                         for (BlockDataHolder data : CivPopulatorManager.getHoldoverBlocks(ChunkPosition.at(x1, z1))) {
                             chunkData.setBlock(data.getX(), data.getY(), data.getZ(), data.getMaterial());
                         }
@@ -105,7 +103,6 @@ public class CivilizationsChunkGen extends ChunkGenerator {
         return chunkData;
     }
 
-    @Override
     public List<BlockPopulator> getDefaultPopulators(World world) {
         return new ArrayList<>();
     }

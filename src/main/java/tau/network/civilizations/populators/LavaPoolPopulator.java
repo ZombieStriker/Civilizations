@@ -1,6 +1,5 @@
 package tau.network.civilizations.populators;
 
-import org.bukkit.Chunk;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.generator.ChunkGenerator;

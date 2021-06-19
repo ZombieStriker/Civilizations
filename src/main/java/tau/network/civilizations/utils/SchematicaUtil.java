@@ -20,7 +20,7 @@ public class SchematicaUtil {
     public static void loadSchematic(Location location, String fileName) {
         WorldEditPlugin worldEditPlugin = (WorldEditPlugin) Bukkit.getPluginManager().getPlugin("WorldEdit");
         EditSession session = worldEditPlugin.getWorldEdit().getEditSessionFactory().getEditSession(new BukkitWorld(location.getWorld()), 10000);
-        File schematic = new File(Civilizations .getInstance().getDataFolder() + File.separator + "/schematics/" + fileName + ".schematic");
+        File schematic = new File(Civilizations.getInstance().getDataFolder() + File.separator + "/schematics/" + fileName + ".schematic");
         try {
             CuboidClipboard clipboard = MCEditSchematicFormat.getFormat(schematic).load(schematic);
             clipboard.rotate2D(0);
